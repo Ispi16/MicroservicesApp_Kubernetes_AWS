@@ -1,0 +1,203 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+*{
+  box-sizing:border-box;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(219, 235, 250);
+  height: 170vh;
+  font-family: 'Open Sans';
+}
+
+button{
+  border-radius: 0;
+  width: 100%;
+  height: 50%;
+}
+
+button[type="submit"] {
+  -webkit-appearance:none;
+}
+
+button i{
+  float: center;
+  padding-right: 20px;
+  margin-top: 3px;
+}
+
+button.a{
+  background-color: rgb(180, 18, 42);
+}
+
+button.b{
+  background-color: rgb(189, 180, 15);
+}
+
+button.c{
+  background-color: #179999;
+}
+
+button.d{
+  background-color: rgb(46, 151, 22);
+}
+
+button.e{
+  background-color: rgb(177, 22, 130);
+}
+
+button.f{
+  background-color: #2C4055;
+}
+
+button.g{
+  background-color: rgb(95, 21, 141);
+}
+
+button.h{
+  background-color: #993416;
+}
+
+#tip{
+  text-align: left;
+  color: #678492;
+  font-size: 14px;
+}
+
+#hostname{
+  position: absolute;
+  text-align: center;
+  bottom: 400px;
+  right: 10px;
+  left: 10px;
+  color: #5b798d;
+  font-size: 24px;
+}
+
+#content-container{
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  display: table;
+  padding: 10px;
+  max-width: 940px;
+  height: 100%;
+}
+#content-container-center{
+  display: table-cell;
+  text-align: center;
+}
+
+#content-container-center h3{
+  color: #1b1717;
+}
+
+#choice{
+  transition: all 300ms linear;
+  line-height: 1.3em;
+  display: inline;
+  vertical-align: middle;
+  font-size: 3em;
+}
+#choice a{
+  text-decoration:none;
+}
+#choice a:hover, #choice a:focus{
+  outline:0;
+  text-decoration:underline;
+}
+
+#choice button{
+  display: block;
+  height: 80px;
+  width: 400px;
+  border: none;
+  color: rgb(248, 242, 242);
+  text-transform: uppercase;
+  font-size:20px;
+  font-weight: 750;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 50px;
+}
+
+#choice button.a:hover{
+  background-color: #D8243F;
+}
+
+#choice button.b:hover{
+  background-color: #EADE1A;
+}
+
+#choice button.c:hover{
+  background-color: #00cbca;
+}
+
+#choice button.d:hover{
+  background-color: #40EA1A;
+}
+
+#choice button.e:hover{
+  background-color: #D824A1;
+}
+
+#choice button.f:hover{
+  background-color: #2C4055;
+}
+
+#choice button.g:hover{
+  background-color: #8E27CD;
+}
+
+#choice button.h:hover{
+  background-color: #c9431a;
+}
+
+
+#choice button.a:focus{
+  background-color: rgb(109, 19, 33);
+}
+
+#choice button.b:focus{
+  background-color: rgb(124, 119, 18);
+}
+
+#choice button.c:focus{
+  background-color: #107777;
+}
+
+#choice button.d:focus{
+  background-color: rgb(32, 104, 16);
+}
+
+#choice button.e:focus{
+  background-color: rgb(138, 31, 106);
+}
+
+#choice button.f:focus{
+  background-color: rgb(17, 37, 58);
+}
+
+#choice button.g:focus{
+  background-color: rgb(48, 12, 70);
+}
+
+#choice button.h:focus{
+  background-color: #700e0e;
+}
+
+#background-stats{
+  z-index:1;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+#background-stats div{
+  transition: width 400ms ease-in-out;
+  display:inline-block;
+  margin-bottom:-4px;
+  width:50%;
+  height:100%;
+}
