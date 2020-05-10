@@ -19,7 +19,7 @@ class Worker {
         String voterID = voteData.getString("voter_id");
         String vote = voteData.getString("vote");
 
-        System.err.printf("Processing vote for '%s' by '%s'\n", vote, voterID);
+        System.err.printf("Processing vote '%s' by '%s'\n", vote, voterID);
         updateVote(dbConn, voterID, vote);
       }
     } catch (SQLException e) {
@@ -42,6 +42,7 @@ class Worker {
       update.setString(1, vote);
       update.setString(2, voterID);
       update.executeUpdate();
+      System.err.printf("'%s' already voted so I updated the vote for him to '%s'\n", voterID, vote);
     }
   }
 
@@ -74,7 +75,7 @@ class Worker {
         try {
           conn = DriverManager.getConnection(url, "postgres", "postgres");
         } catch (SQLException e) {
-          System.err.println("Waiting for db");
+          System.err.println("Waiting for database");
           sleep(1000);
         }
       }
@@ -82,6 +83,7 @@ class Worker {
       PreparedStatement st = conn.prepareStatement(
         "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL)");
       st.executeUpdate();
+      System.err.printf("Table votes did not exist, so it has been created\n");
 
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
