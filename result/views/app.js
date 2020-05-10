@@ -63,7 +63,7 @@ app.controller('statsCtrl', function($scope){
 function getPercentages(a, b, c, d, e, f, g, h) {
   var result = {};
 
-  if (a + b > 0) {
+  if (a + b + c + d + e + f + g + h > 0) {
     result.a = Math.round(a / (a + b + c + d + e + f + g + h) * 100);
     result.b = Math.round(b / (a + b + c + d + e + f + g + h) * 100);
     result.c = Math.round(c / (a + b + c + d + e + f + g + h) * 100);
