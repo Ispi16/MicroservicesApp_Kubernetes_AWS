@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, make_response, g
 from redis import Redis
-import os
 import socket
+import os
 import random
 import json
+
+hostname = socket.gethostname()
 
 option_a = os.getenv('OPTION_A', "Python")
 option_b = os.getenv('OPTION_B', "Java")
@@ -13,7 +15,6 @@ option_e = os.getenv('OPTION_E', "C++")
 option_f = os.getenv('OPTION_F', "PHP")
 option_g = os.getenv('OPTION_G', "C#")
 option_h = os.getenv('OPTION_H', "Golang")
-hostname = socket.gethostname()
 
 app = Flask(__name__)
 

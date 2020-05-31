@@ -1,7 +1,6 @@
 var express = require('express'),
     async = require('async'),
     pg = require('pg'),
-    { Pool } = require('pg'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
@@ -16,7 +15,7 @@ var port = process.env.PORT || 4000;
 
 io.sockets.on('connection', function (socket) {
 
-  socket.emit('message', { text : 'Welcome!' });
+  socket.emit('message', { text : 'Hello !' });
 
   socket.on('subscribe', function (data) {
     socket.join(data.channel);
@@ -32,16 +31,16 @@ async.retry(
   function(callback) {
     pool.connect(function(err, client, done) {
       if (err) {
-        console.error("Waiting for db");
+        console.error("Waiting for the database ..");
       }
       callback(err, client);
     });
   },
   function(err, client) {
     if (err) {
-      return console.error("Giving up");
+      return console.error("Can't connect to the database");
     }
-    console.log("Connected to db");
+    console.log("Connected to the database");
     getVotes(client);
   }
 );
@@ -87,5 +86,5 @@ app.get('/', function (req, res) {
 
 server.listen(port, function () {
   var port = server.address().port;
-  console.log('App running on port ' + port);
+  console.log('Application is running on port ' + port);
 });

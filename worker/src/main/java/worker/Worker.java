@@ -1,9 +1,9 @@
 package worker;
 
+import org.json.JSONObject;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import java.sql.*;
-import org.json.JSONObject;
 
 class Worker {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ class Worker {
       Jedis redis = connectToRedis("redis");
       Connection dbConn = connectToDB("db");
 
-      System.err.println("Watching vote queue");
+      System.err.println("Watching the voting queue");
 
       while (true) {
         String voteJSON = redis.blpop(0, "votes").get(1);
@@ -19,7 +19,7 @@ class Worker {
         String voterID = voteData.getString("voter_id");
         String vote = voteData.getString("vote");
 
-        System.err.printf("Processing vote '%s' by '%s'\n", vote, voterID);
+        System.err.printf("Processing vote '%s' issued by '%s'\n", vote, voterID);
         updateVote(dbConn, voterID, vote);
       }
     } catch (SQLException e) {
@@ -42,7 +42,7 @@ class Worker {
       update.setString(1, vote);
       update.setString(2, voterID);
       update.executeUpdate();
-      System.err.printf("'%s' already voted so I updated the vote for him to '%s'\n", voterID, vote);
+      System.err.printf("'%s' already voted, so I updated the vote for him to '%s'\n", voterID, vote);
     }
   }
 
@@ -90,7 +90,7 @@ class Worker {
       System.exit(1);
     }
 
-    System.err.println("Connected to db");
+    System.err.println("Connected to database");
     return conn;
   }
 

@@ -11,13 +11,14 @@
   </head>
   <body ng-controller="statsCtrl" >
      <div id="background-stats">
-       <div id="background-stats-1">
-       </div><!--
-      --><div id="background-stats-2">
+      <div id="background-stats-1">
+        </div>
+        <div id="background-stats-2">
       </div>
     </div>
     <div id="content-container">
       <div id="content-container-center">
+        <h3>Rezultat: cel mai popular limbaj de programare </h3>
         <div id="choice">
           <div class="choice Python">
             <div class="label">Python</div>
@@ -51,6 +52,9 @@
             <div class="label">Golang</div>
             <div class="stat">{{hPercent | number:1}}%</div>
           </div>
+          <div id="tip">
+            * Voturile sunt procesate in timp real
+           </div>
         </div>
       </div>
     </div>
