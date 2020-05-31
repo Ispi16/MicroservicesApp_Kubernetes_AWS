@@ -65,13 +65,13 @@ function getPercentages(a, b, c, d, e, f, g, h) {
   var result = {};
 
   if (a + b + c + d + e + f + g + h > 0) {
-    result.a = Math.round(a / (a + b + c + d + e + f + g + h) * 100);
-    result.b = Math.round(b / (a + b + c + d + e + f + g + h) * 100);
-    result.c = Math.round(c / (a + b + c + d + e + f + g + h) * 100);
-    result.d = Math.round(d / (a + b + c + d + e + f + g + h) * 100);
-    result.e = Math.round(e / (a + b + c + d + e + f + g + h) * 100);
-    result.f = Math.round(f / (a + b + c + d + e + f + g + h) * 100);
-    result.g = Math.round(g / (a + b + c + d + e + f + g + h) * 100);
+    result.a = a / (a + b + c + d + e + f + g + h) * 100;
+    result.b = b / (a + b + c + d + e + f + g + h) * 100;
+    result.c = c / (a + b + c + d + e + f + g + h) * 100;
+    result.d = d / (a + b + c + d + e + f + g + h) * 100;
+    result.e = e / (a + b + c + d + e + f + g + h) * 100;
+    result.f = f / (a + b + c + d + e + f + g + h) * 100;
+    result.g = g / (a + b + c + d + e + f + g + h) * 100;
     result.h = 100 - result.a - result.b - result.c - result.d - result.e - result.f - result.g;
   } else {
     result.a = result.b = result.c = result.d = result.e = result.f = result.g = result.h = 12.5;
