@@ -1,8 +1,6 @@
 App to vote your favourite programming language
 =========
 
-A microservices application.
-
 Getting started
 ---------------
 
