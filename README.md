@@ -30,6 +30,7 @@ Once you have your swarm, in this directory run:
 docker stack deploy --compose-file docker-stack.yml vote
 ```
 
+Use the remove script here to clean all the stuff
 
 Run the app in Kubernetes
 -------------------------
@@ -64,7 +65,7 @@ Architecture
 
 * A front-end web app in [Python](/vote) which lets you vote between two options
 * A [Redis](https://hub.docker.com/_/redis/) queue which collects new votes
-* A [Java](/worker/src/main) or [.NET Core 2.1](/worker/dotnet) worker which consumes votes and stores them in…
+* A [Java](/worker/src/main) worker which consumes votes and stores them in…
 * A [Postgres](https://hub.docker.com/_/postgres/) database backed by a Docker volume
 * A [Node.js](/result) webapp which shows the results of the voting in real time
 
