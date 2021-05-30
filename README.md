@@ -1,15 +1,14 @@
-Example Voting App
+App to vote your favourite programming language
 =========
 
-A simple distributed application running across multiple Docker containers.
+A microservices application.
 
 Getting started
 ---------------
 
 Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows. [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/). 
 
-
-## Linux Containers
+## Docker
 
 The Linux stack uses Python, Node.js, Java, with Redis for messaging and Postgres for storage.
 
@@ -30,7 +29,7 @@ Once you have your swarm, in this directory run:
 docker stack deploy --compose-file docker-stack.yml vote
 ```
 
-Use the remove script here to clean all the stuff
+Use the remove script here to clean all the stuff and relaunch the app
 
 Run the app in Kubernetes
 -------------------------
@@ -62,15 +61,16 @@ The vote interface is then available on port 31000 on each host of the cluster, 
 Architecture
 -----
 
+![image](https://user-images.githubusercontent.com/31995078/120103561-ddf47380-c158-11eb-91c1-05dcab54d1dc.png)
 
-* A front-end web app in [Python](/vote) which lets you vote between two options
-* A [Redis](https://hub.docker.com/_/redis/) queue which collects new votes
-* A [Java](/worker/src/main) worker which consumes votes and stores them in…
-* A [Postgres](https://hub.docker.com/_/postgres/) database backed by a Docker volume
-* A [Node.js](/result) webapp which shows the results of the voting in real time
+* A front-end web app in [Python](/vote) which lets you vote between programming different languages.
+* A [Redis](https://hub.docker.com/_/redis/) queue which collects new votes.
+* A [Java](/worker/src/main) worker which consumes votes and stores them in database.
+* A [Postgres](https://hub.docker.com/_/postgres/) database backed by a Docker volume.
+* A [Node.js](/result) webapp which shows the results of the voting in real time.
 
 
 Note
 ----
 
-The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
+The microservice application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
